@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HOLA – Horas Laundry</title>
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.dataset.tema=localStorage.getItem("hola_tema")||(matchMedia("(prefers-color-scheme:dark)").matches?"gelap":"terang")</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span>HOLA</span></div>
+  <button id="burger" aria-label="Menu">☰</button>
+  <nav id="menu">
+    <a href="#" class="nav active" data-page="beranda">🏠 Beranda</a>
+    <a href="#" class="nav" data-page="pages/kalkulator.html">🧮 Simulasi Kasir</a>
+    <a href="#" class="nav" data-page="pages/form-transaksi.html">📝 Transaksi Baru</a>
+  </nav>
+  <button id="tema" title="Mode terang / gelap" aria-label="Ganti tema">🌙</button>
+</header>
+
+<main class="wrap">
+  <!-- HOMEPAGE (2.a) -->
+  <section id="beranda">
+    <div class="cards">
+      <div class="card c1"><small>Sedang Diproses</small><strong id="cProses">0</strong></div>
+      <div class="card c2"><small>Siap Diambil</small><strong id="cSiap">0</strong></div>
+      <div class="card c3"><small>Selesai</small><strong id="cSelesai">0</strong></div>
+    </div>
+    <div class="banner"><div><small>Omset hari ini (status Lunas)</small><h2 id="omset">Rp 0</h2></div><img src="img/banner.svg" alt="" width="120"></div>
+    <h3 class="judul">Pilih Layanan</h3>
+    <div class="layanan" id="layanan"></div>
+    <div class="head-tabel"><h3 class="judul">Antrean Laundry</h3><input id="cari" type="search" placeholder="🔍 Cari resi / nama..."></div>
+    <div class="scroll-x"><table><thead><tr><th>Resi</th><th>Pelanggan</th><th>Layanan</th><th>Total</th><th>Bayar</th><th>Status</th><th></th></tr></thead><tbody id="antrean"></tbody></table></div>
+  </section>
+  <!-- Konten Ajax (2.b & 2.c) -->
+  <section id="konten" style="display:none"></section>
+</main>
+<footer>© 2026 HOLA – Horas Laundry · Modul Kasir oleh Muhammad Ashim Dzuhilmi</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
