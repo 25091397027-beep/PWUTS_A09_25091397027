@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS hola_laundry CHARACTER SET utf8mb4;
+USE hola_laundry;
+CREATE TABLE IF NOT EXISTS pelanggan(id INT AUTO_INCREMENT PRIMARY KEY,nama VARCHAR(100) NOT NULL,no_hp VARCHAR(20) NOT NULL UNIQUE);
+CREATE TABLE IF NOT EXISTS transaksi(
+ id INT AUTO_INCREMENT PRIMARY KEY,kode_resi VARCHAR(20) NOT NULL UNIQUE,pelanggan_id INT NOT NULL,
+ jenis_layanan VARCHAR(50) NOT NULL,berat_qty FLOAT NOT NULL,total_bayar DECIMAL(12,2) NOT NULL,
+ status_laundry VARCHAR(20) NOT NULL DEFAULT 'Diproses',status_pembayaran VARCHAR(20) NOT NULL,
+ metode_pembayaran VARCHAR(20) NOT NULL,catatan TEXT,tanggal_masuk DATETIME NOT NULL,
+ FOREIGN KEY(pelanggan_id) REFERENCES pelanggan(id));
